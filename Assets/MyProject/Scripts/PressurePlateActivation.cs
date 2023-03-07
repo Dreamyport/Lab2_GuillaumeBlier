@@ -17,7 +17,7 @@ public class PressurePlateActivation : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) 
     {
-        if (!_colliderList.Contains(other.gameObject))
+        if (!_colliderList.Contains(other.gameObject) && (other.gameObject.tag == "Player" || other.gameObject.tag == "Copy"))
         {
             _colliderList.Add(other.gameObject);
             _lightOn.GetComponent<MeshRenderer>().material = _lightOnMat;
@@ -28,7 +28,7 @@ public class PressurePlateActivation : MonoBehaviour
 
     private void OnTriggerExit(Collider other) 
     {
-        if (_colliderList.Contains(other.gameObject))
+        if (_colliderList.Contains(other.gameObject) && (other.gameObject.tag == "Player" || other.gameObject.tag == "Copy"))
         {
             _colliderList.Remove(other.gameObject);
 

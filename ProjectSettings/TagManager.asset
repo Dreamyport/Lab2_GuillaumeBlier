@@ -7,6 +7,9 @@ TagManager:
   - Copy
   - Guard
   - GuardBody
+  - RotationObstacle
+  - Key
+  - Trap
   layers:
   - Default
   - TransparentFX

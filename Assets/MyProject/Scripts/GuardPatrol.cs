@@ -5,50 +5,90 @@ using UnityEngine;
 public class GuardPatrol : MonoBehaviour
 {
     // Attributs:
-    private int _indexPoint;
+    private bool _caughtSomeone;
+    private bool _playerCaught;
+    private float _horizontalValue = 1.0f;
+    private float _verticalValue = 1.0f;
+
     [Header("Patrol")]
-    [SerializeField] private List<Transform> _patrolPoints = new List<Transform>();
+    [SerializeField] private GameObject _spotLight;
+    [SerializeField] private Material _guardCaughtMat;
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private bool _isHorizontal;
     [SerializeField] private float _guardSpeed = 100f;
     [SerializeField] private float _guardRotationSpeed = 100f;
 
     // Méthodes privées:
     private void Start() 
     {
-        _indexPoint= 0;
+        _caughtSomeone = false;
+        _playerCaught = false;
     }
 
     private void FixedUpdate()
     {
-
-        MoveGuard(); 
+        if (!_caughtSomeone)
+        {
+            MoveGuard();
+        }
+        else 
+        {
+            _rb.velocity = Vector3.zero;
+        }
     }
 
     private void MoveGuard() 
     {
-        Vector3 direction = _patrolPoints[_indexPoint].position;
-        direction.Normalize();
+        Vector3 direction;
 
-        _rb.velocity = direction * Time.fixedDeltaTime * _guardSpeed;
+        if (!_isHorizontal)
+        {
+            direction = new Vector3(0, 0, _horizontalValue);
+        }
+        else 
+        {
+            direction = new Vector3(_verticalValue, 0, 0);
+        }
+
+        _rb.velocity = direction.normalized * Time.fixedDeltaTime * _guardSpeed;
 
         // Code du changement de direction pris par Ketra Games dans la vidéo: https://www.youtube.com/watch?v=BJzYGsMcy8Q&ab_channel=KetraGames
+        Quaternion toRotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
+        transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _guardRotationSpeed * Time.fixedDeltaTime);
+    }
 
-        if (direction != Vector3.zero) 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Copy")
+        { 
+            _caughtSomeone= true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other) 
+    {
+        if (other.gameObject.tag == "Copy" && !_playerCaught)
         {
-            Quaternion toRotation = Quaternion.LookRotation(direction, Vector3.up);
-
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _guardRotationSpeed * Time.fixedDeltaTime);
+            _caughtSomeone = false;
         }
     }
 
     // Méthodes publiques:
-    public void SetNextPoint() 
+    public void SetDirection() 
     {
-        _indexPoint++;
+        _horizontalValue *= -1.0f;
+        _verticalValue *= -1.0f;
+    }
 
-        if (_indexPoint >= _patrolPoints.Count) 
-        {
-            _indexPoint = 0;
-        }
+    public void SetCaughtSomeone(bool caught) 
+    {
+        _caughtSomeone = caught;
+        _playerCaught = caught;
+    }
+
+    public void CaughtSomeone() 
+    {
+        _spotLight.GetComponent<Light>().color = Color.red;
+        gameObject.GetComponentInChildren<MeshRenderer>().material = _guardCaughtMat;
     }
 }

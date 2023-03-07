@@ -16,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 8f;
     [SerializeField] private float _sprintSpeed = 12f;
+    [SerializeField] private float _rotationSpeed = 100f;
     [SerializeField] private float _gravity = 9.81f;
     [SerializeField] private float _gravityCopy = 9.81f;
 
@@ -60,6 +61,12 @@ public class PlayerMovement : MonoBehaviour
     {
         _rb.velocity = direction.normalized * Time.fixedDeltaTime * speed;
         _rb.AddForce(Vector3.down * _gravity);
+
+        if (direction.normalized != Vector3.zero) 
+        {
+            Quaternion toRotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
+            transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.fixedDeltaTime);
+        }
     }
 
     private void CreateCopy() 

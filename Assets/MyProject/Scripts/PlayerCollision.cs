@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class PlayerCollision : MonoBehaviour
 {
@@ -9,9 +8,8 @@ public class PlayerCollision : MonoBehaviour
     {
         if (collision.gameObject.tag == "Guard" || collision.gameObject.tag == "GuardBody") 
         {
-            Debug.Log("Hit");
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            collision.gameObject.GetComponent<GuardPatrol>().SetCaughtSomeone(true);
+            collision.gameObject.GetComponent<GuardPatrol>().CaughtSomeone();
         }
     }
 
@@ -19,8 +17,8 @@ public class PlayerCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "Guard" || other.gameObject.tag == "GuardBody")
         {
-            Scene scene = SceneManager.GetActiveScene();
-            SceneManager.LoadScene(scene.name);
+            other.gameObject.GetComponent<GuardPatrol>().SetCaughtSomeone(true);
+            other.gameObject.GetComponent<GuardPatrol>().CaughtSomeone();
         }
     }
 }

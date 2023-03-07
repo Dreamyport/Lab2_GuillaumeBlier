@@ -1,18 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private void OnTriggerEnter(Collider other)
     {
-        
-    }
+        if (other.gameObject.tag == "Player")
+        {
+            // Récupération de l'index de la scène active.
+            int indexScene = SceneManager.GetActiveScene().buildIndex;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+            if (indexScene == 1)
+            {
+
+            }
+            else
+            {
+                SceneManager.LoadScene(indexScene + 1);
+            }
+        }
     }
 }
