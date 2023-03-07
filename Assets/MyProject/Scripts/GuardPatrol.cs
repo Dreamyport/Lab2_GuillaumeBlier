@@ -61,7 +61,13 @@ public class GuardPatrol : MonoBehaviour
     {
         if (other.gameObject.tag == "Copy")
         { 
-            _caughtSomeone= true;
+            _caughtSomeone = true;
+        }
+        if (other.gameObject.tag == "Player") 
+        {
+            _caughtSomeone = true;
+            _playerCaught = true;
+            CaughtSomeone();
         }
     }
 

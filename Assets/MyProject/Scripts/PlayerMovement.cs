@@ -6,33 +6,27 @@ public class PlayerMovement : MonoBehaviour
 {
     // Attributs:
     private bool _madeCopy = false;
-    private GameObject _copyMade;
 
     [Header("References")]
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private GameObject _copy;
-    [SerializeField] private GameObject _copySpawn;
+    [SerializeField] private Transform _copyStartLocation;
+
+    [SerializeField] private bool _onIce = false;
 
     [Header("Movement")]
     [SerializeField] private float _moveSpeed = 8f;
     [SerializeField] private float _sprintSpeed = 12f;
     [SerializeField] private float _rotationSpeed = 100f;
     [SerializeField] private float _gravity = 9.81f;
-    [SerializeField] private float _gravityCopy = 9.81f;
 
     // Méthodes privées:
     private void Update() 
     {
         if (Input.GetKeyDown(KeyCode.E) && !_madeCopy)
-        {
-            _madeCopy = true;
             CreateCopy();
-        }
         else if (Input.GetKeyDown(KeyCode.E) && _madeCopy) 
-        {
-            _madeCopy = false;
             DeleteCopy();
-        }
     }
 
     private void FixedUpdate()
@@ -59,8 +53,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void PushPlayer(Vector3 direction, float speed)
     {
-        _rb.velocity = direction.normalized * Time.fixedDeltaTime * speed;
-        _rb.AddForce(Vector3.down * _gravity);
+        if (!_onIce)
+        {
+            _rb.velocity = direction.normalized * Time.fixedDeltaTime * speed;
+            _rb.AddForce(Vector3.down * _gravity);
+        }
+        else
+        {
+            _rb.AddForce(direction.normalized * Time.fixedDeltaTime * speed);
+        }
 
         if (direction.normalized != Vector3.zero) 
         {
@@ -71,18 +72,18 @@ public class PlayerMovement : MonoBehaviour
 
     private void CreateCopy() 
     {
-        _copyMade = Instantiate(_copy, _copySpawn.transform.position, _copySpawn.transform.rotation);
+        _copy.transform.position = transform.position;
+        _copy.transform.rotation = transform.rotation;
+        _madeCopy = true;
     }
-
-    private void DeleteCopy() 
-    {
-        _copyMade.GetComponent<Rigidbody>().useGravity = true;
-        _copyMade.GetComponent<Rigidbody>().AddForce(Vector3.down * _gravityCopy);
-        Destroy(_copyMade, 0.1f);
-    }
-
 
     // Méthodes publiques:
+    public void DeleteCopy() 
+    {
+        _copy.transform.position = _copyStartLocation.position;
+        _madeCopy = false;
+    }
+
     public bool GetMadeCopy() 
     {
         return _madeCopy;

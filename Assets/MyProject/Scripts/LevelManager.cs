@@ -9,10 +9,10 @@ public class LevelManager : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            // Récupération de l'index de la scène active.
+            // Rï¿½cupï¿½ration de l'index de la scï¿½ne active.
             int indexScene = SceneManager.GetActiveScene().buildIndex;
 
-            if (indexScene == 1)
+            if (indexScene == 3)
             {
 
             }

@@ -17,11 +17,13 @@ public class Key : MonoBehaviour
         _hasKey = false;
         _triggerOnce = false;
     }
-    private void Update()
+    private void FixedUpdate()
     {
         if (_hasKey) 
         {
             GetComponent<Transform>().position = _inventory.position;
+            GetComponent<Transform>().rotation = _inventory.rotation;
+
         }
     }
 
