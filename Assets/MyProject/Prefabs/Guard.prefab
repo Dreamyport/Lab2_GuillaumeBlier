@@ -289,8 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashlight: {fileID: 6614606390190265070}
   _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+  _movable: 1
   _isGuard: 1
 --- !u!114 &5556950448332686444
 MonoBehaviour:

@@ -77,8 +77,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _flashlight: {fileID: 0}
   _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+  _movable: 1
   _isGuard: 0
 --- !u!1001 &7438126218660429679
 PrefabInstance:

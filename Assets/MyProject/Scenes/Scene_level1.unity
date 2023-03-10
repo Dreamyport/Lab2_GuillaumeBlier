@@ -4996,7 +4996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 202914115}
   m_Layer: 0
-  m_Name: Spawn
+  m_Name: Teleport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5009,13 +5009,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 202914114}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.5, y: 0, z: 29.64}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.2300005, y: 0, z: -11.990002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1036007779}
-  m_RootOrder: 3
+  m_Father: {fileID: 1490789630}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &204398115
 PrefabInstance:
@@ -5270,7 +5270,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 543958434293687780, guid: a04b3861a07c7364397b1c0bd0ef0452, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -10.13
+      value: -10.130001
       objectReference: {fileID: 0}
     - target: {fileID: 543958434293687780, guid: a04b3861a07c7364397b1c0bd0ef0452, type: 3}
       propertyPath: m_LocalPosition.y
@@ -27336,7 +27336,6 @@ Transform:
   - {fileID: 1853863315}
   - {fileID: 1802835978}
   - {fileID: 1490789630}
-  - {fileID: 202914115}
   m_Father: {fileID: 1075612252}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38809,7 +38808,8 @@ Transform:
   m_LocalPosition: {x: -9.7300005, y: 0, z: 41.63}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 202914115}
   m_Father: {fileID: 1036007779}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -38838,10 +38838,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6569d32a1e628674d9e958d222cd20ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _trap: {fileID: 1853863314}
-  _blockade: {fileID: 1910781516}
-  _teleportObject: {fileID: 1095513110}
-  _teleportLocation: {fileID: 202914115}
+  _traps:
+  - {fileID: 1853863314}
+  _blockades:
+  - {fileID: 1910781516}
 --- !u!1 &1491928192
 GameObject:
   m_ObjectHideFlags: 0
@@ -49004,6 +49004,8 @@ GameObject:
   - component: {fileID: 1853863318}
   - component: {fileID: 1853863317}
   - component: {fileID: 1853863316}
+  - component: {fileID: 1853863321}
+  - component: {fileID: 1853863320}
   m_Layer: 0
   m_Name: Trap
   m_TagString: Trap
@@ -49105,6 +49107,35 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1853863314}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1853863320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853863314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6acafaf3b6ddd74b89a528e4160580a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _teleportObject: {fileID: 1095513110}
+  _teleportLocation: {fileID: 202914115}
+--- !u!114 &1853863321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853863314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+  _movable: 0
+  _isGuard: 0
 --- !u!4 &1854375807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953, type: 3}

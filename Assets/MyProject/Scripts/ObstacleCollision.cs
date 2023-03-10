@@ -14,6 +14,7 @@ public class ObstacleCollision : MonoBehaviour
     [SerializeField] private Material _playerCaughtMat;
 
     [Header("Type")]
+    [SerializeField] private bool _movable;
     [SerializeField] private bool _isGuard;
 
     // Méthodes privées:
@@ -50,7 +51,11 @@ public class ObstacleCollision : MonoBehaviour
     private void CaughtPlayer()
     {
         _playerCaught = true;
-        _om.SetCanMove(false);
+
+        if (!_movable)
+            GetComponent<PlayerTeleport>().Teleport();
+        else
+            _om.SetCanMove(false);
 
         gameObject.GetComponentInChildren<MeshRenderer>().material = _playerCaughtMat;
 
