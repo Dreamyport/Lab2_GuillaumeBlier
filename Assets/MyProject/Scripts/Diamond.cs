@@ -9,8 +9,7 @@ public class Diamond : MonoBehaviour
     {
         if (other.gameObject.tag == "Player") 
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

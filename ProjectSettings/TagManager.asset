@@ -10,6 +10,7 @@ TagManager:
   - RotationObstacle
   - Key
   - Trap
+  - Obstacle
   layers:
   - Default
   - TransparentFX

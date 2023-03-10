@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5115152518205395339}
   - component: {fileID: 3098510597674167057}
-  - component: {fileID: 8643991759480274537}
+  - component: {fileID: 5528960955819014264}
   m_Layer: 0
   m_Name: PointB
   m_TagString: Untagged
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 4.90642, z: 1}
   m_Center: {x: 0, y: 1.9532101, z: 0}
---- !u!114 &8643991759480274537
+--- !u!114 &5528960955819014264
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,6 +55,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 5440703073605456679}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7285e6a170377084c9fb3f90c0fbce46, type: 3}
+  m_Script: {fileID: 11500000, guid: a94c3ae362e08b8469435f5bd3e900fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

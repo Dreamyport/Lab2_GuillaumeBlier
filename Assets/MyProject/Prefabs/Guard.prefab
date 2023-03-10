@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 6614606390190265071}
   - component: {fileID: 6614606390190265068}
   m_Layer: 0
-  m_Name: Spot Light
+  m_Name: Flashlight
   m_TagString: Guard
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,7 +128,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6614606390708985292}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 10.05, y: 0, z: 0}
 --- !u!108 &6614606390190265068
 Light:
@@ -203,7 +203,9 @@ GameObject:
   - component: {fileID: 6614606390708985292}
   - component: {fileID: 6614606390708985293}
   - component: {fileID: 3142662474630325663}
-  - component: {fileID: 6614606390708985291}
+  - component: {fileID: 4089384321526077310}
+  - component: {fileID: 8809081019423596258}
+  - component: {fileID: 5556950448332686444}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Guard
@@ -224,8 +226,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 245673281630280669}
-  - {fileID: 6614606390190265071}
   - {fileID: 97928300334559219}
+  - {fileID: 6614606390190265071}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -258,7 +260,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 80
   m_CollisionDetection: 1
---- !u!114 &6614606390708985291
+--- !u!114 &4089384321526077310
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -267,15 +269,41 @@ MonoBehaviour:
   m_GameObject: {fileID: 6614606390708985295}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 709467dd4217a564389e7d3662817826, type: 3}
+  m_Script: {fileID: 11500000, guid: c7f6799882a1e4f4dad83d311932eedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _spotLight: {fileID: 6614606390190265070}
-  _guardCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
-  _rb: {fileID: 3142662474630325663}
+  _rotationSpeed: 200
+  _translateSpeed: 300
+  _rotation: 0
   _isHorizontal: 0
-  _guardSpeed: 200
-  _guardRotationSpeed: 100
+  _isGuard: 1
+--- !u!114 &8809081019423596258
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614606390708985295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _flashlight: {fileID: 6614606390190265070}
+  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+  _isGuard: 1
+--- !u!114 &5556950448332686444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6614606390708985295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a94c3ae362e08b8469435f5bd3e900fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &93010708735692507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,11 +313,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1796391064301074, guid: 07428cfeb07f41144b70e1d7145d2ad3, type: 3}
       propertyPath: m_Name
-      value: Skull0ClosedD
+      value: Mask
       objectReference: {fileID: 0}
     - target: {fileID: 4954374104785192, guid: 07428cfeb07f41144b70e1d7145d2ad3, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4954374104785192, guid: 07428cfeb07f41144b70e1d7145d2ad3, type: 3}
       propertyPath: m_LocalScale.x

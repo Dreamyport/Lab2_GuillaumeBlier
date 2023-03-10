@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6337593494069613384}
   - component: {fileID: 6329576741777645200}
   - component: {fileID: 5645837469736056517}
-  - component: {fileID: 6703914640815519207}
+  - component: {fileID: 6141932616110898638}
   - component: {fileID: 8808715313371816416}
   m_Layer: 0
   m_Name: Diamondo5side
@@ -99,7 +99,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4059367, y: 2.4380145, z: 2.4853024}
   m_Center: {x: -0.0000032782555, y: -0.0000026822097, z: -0.7140475}
---- !u!114 &6703914640815519207
+--- !u!114 &6141932616110898638
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,10 +108,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 6306472556038378306}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e7a0a973b322f243980f7d8a03d2cf0, type: 3}
+  m_Script: {fileID: 11500000, guid: c7f6799882a1e4f4dad83d311932eedc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _zSpeed: 2
+  _rotationSpeed: 2
+  _translateSpeed: 2
+  _rotation: 1
+  _isHorizontal: 0
+  _isGuard: 0
 --- !u!114 &8808715313371816416
 MonoBehaviour:
   m_ObjectHideFlags: 0
