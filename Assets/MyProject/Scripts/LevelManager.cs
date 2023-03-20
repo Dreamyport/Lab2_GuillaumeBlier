@@ -86,8 +86,8 @@ public class LevelManager : MonoBehaviour
             for (int i = _indexLevel - 1; i >= 0; i--)
             {
                 _diamonds[_indexLevel] -= _diamonds[i];
-                _obstacles[_indexLevel] -= _subTime;
-                _time[_indexLevel] -= _timer;
+                _obstacles[_indexLevel] -= _obstacles[i];
+                _time[_indexLevel] -= _time[i];
             }
         }
         
@@ -101,8 +101,8 @@ public class LevelManager : MonoBehaviour
 
         Debug.Log("Partie terminée!");
 
-        for (int i = 1; i < 4; i++)
-            Debug.Log("Niveau " + i.ToString() + ": " + _time[i].ToString("#.") + "s, Diamants collectés: " + _diamonds[i].ToString("#.") + ", Obstacles touchés: " + _obstacles[i].ToString("#.") + ".");
+        for (int i = 0; i < 3; i++)
+            Debug.Log("Niveau " + (i+1).ToString() + ": " + _time[i].ToString("#.") + "s, Diamants collectés: " + _diamonds[i].ToString("#.") + ", Obstacles touchés: " + _obstacles[i].ToString("#.") + ".");
        
         Debug.Log("Total: " + _timer.ToString("#.") + "s, Diamants collectés: " + _addTime.ToString("#.") + ", Obstacles touchés: " + _subTime.ToString("#.") + ".");
     }
