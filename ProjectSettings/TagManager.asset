@@ -11,6 +11,7 @@ TagManager:
   - Key
   - Trap
   - Obstacle
+  - Portal
   layers:
   - Default
   - TransparentFX

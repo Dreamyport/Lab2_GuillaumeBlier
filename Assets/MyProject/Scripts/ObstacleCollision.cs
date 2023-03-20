@@ -8,7 +8,8 @@ public class ObstacleCollision : MonoBehaviour
     // Attributs:
     private bool _playerCaught = false;
 
-    private ObstacleMovement _om;
+    private ObstacleMovement _obstacleMovement;
+    private LevelManager _levelManager;
 
     [Header("References")]
     [SerializeField] private Material _playerCaughtMat;
@@ -20,13 +21,14 @@ public class ObstacleCollision : MonoBehaviour
     // Méthodes privées:
     private void Start()
     {
-        _om = GetComponent<ObstacleMovement>();
+        _obstacleMovement = GetComponent<ObstacleMovement>();
+        _levelManager = FindObjectOfType<LevelManager>();
     }
 
     // Gestion des collisions physiques.
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" && !_playerCaught)
             CaughtPlayer();
     }
 
@@ -35,17 +37,17 @@ public class ObstacleCollision : MonoBehaviour
     {
         // Le garde voit une copie.
         if (other.gameObject.tag == "Copy")
-            _om.SetCanMove(false);
+            _obstacleMovement.SetCanMove(false);
 
         // Le garde voit le joueur.
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && !_playerCaught)
             CaughtPlayer();
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Copy" && !_playerCaught)
-            _om.SetCanMove(true);
+            _obstacleMovement.SetCanMove(true);
     }
 
     private void CaughtPlayer()
@@ -55,11 +57,13 @@ public class ObstacleCollision : MonoBehaviour
         if (!_movable)
             GetComponent<PlayerTeleport>().Teleport();
         else
-            _om.SetCanMove(false);
+            _obstacleMovement.SetCanMove(false);
 
         gameObject.GetComponentInChildren<MeshRenderer>().material = _playerCaughtMat;
 
         if(_isGuard)
             gameObject.GetComponentInChildren<Light>().color = Color.red;
+
+        _levelManager.SubTime();
     }
 }

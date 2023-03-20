@@ -88,4 +88,9 @@ public class PlayerMovement : MonoBehaviour
     {
         return _madeCopy;
     }
+
+    public void GameOver()
+    {
+        this.gameObject.SetActive(false);
+    }
 }
