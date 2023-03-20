@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
             // R�cup�ration de l'index de la sc�ne active.
             int indexScene = SceneManager.GetActiveScene().buildIndex;
 
-            if (indexScene == 3)
+            if (indexScene == 2)
             {
 
             }
