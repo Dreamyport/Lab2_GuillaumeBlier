@@ -4,35 +4,38 @@ using UnityEngine;
 
 public class Key : MonoBehaviour
 {
-    // Attributs:
-    private bool _hasKey;
-    private bool _triggerOnce;
+    /* ---------------------
+     * Attributs:
+     * ---------------------
+     */
+    private bool _playerHasKey = false;
 
     [Header("References")]
     [SerializeField] private Transform _inventory;
 
-    // Méthodes privées:
-    private void Start()
-    {
-        _hasKey = false;
-        _triggerOnce = false;
-    }
+    /* ---------------------
+     * Méthodes privées:
+     * ---------------------
+     */
     private void FixedUpdate()
     {
-        if (_hasKey) 
-        {
-            GetComponent<Transform>().position = _inventory.position;
-            GetComponent<Transform>().rotation = _inventory.rotation;
-
-        }
+        if (_playerHasKey)
+            FollowThePlayer();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player" && !_triggerOnce)
-        {
-            _hasKey = true;
-            _triggerOnce = true;
-        }
+        // S'assurer que le joueur ne trigger pas la zone, quand la clé est dans l'inventaire.
+        if (other.gameObject.tag == "Player" && !_playerHasKey)
+            _playerHasKey = true;
+    }
+
+    // La clé suit le joueur, seulement si celui-ci la possède.
+    private void FollowThePlayer() 
+    {
+        Transform keyTransform = GetComponent<Transform>();
+
+        keyTransform.position = _inventory.position;
+        keyTransform.rotation = _inventory.rotation;
     }
 }

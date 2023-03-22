@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class Diamond : MonoBehaviour
 {
-    // Attributs:
+    /* ---------------------
+     * Attributs:
+     * ---------------------
+     */
     private LevelManager _levelManager;
 
-    // Méthodes privées:
+    /* ---------------------
+     * Méthodes privées:
+     * ---------------------
+     */
     private void Start()
     {
         _levelManager = FindObjectOfType<LevelManager>();    
     }
 
+    // Désactive l'objet et ajoute 1 au compteur du temps gagné.
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player") 
