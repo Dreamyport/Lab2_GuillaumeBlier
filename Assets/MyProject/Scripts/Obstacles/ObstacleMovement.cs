@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class ObstacleMovement : MonoBehaviour
 {
-    // Attributs:
-    private bool _canMove;
+    /* ---------------------
+     * Attributs:
+     * ---------------------
+     */
+    private bool _canMove = true;
 
     private float _horizontalValue = 1.0f;
     private float _verticalValue = 1.0f;
@@ -19,18 +22,16 @@ public class ObstacleMovement : MonoBehaviour
     [SerializeField] private bool _isHorizontal;
     [SerializeField] private bool _isGuard;
 
-    // Méthodes privées:
-    private void Start()
-    {
-        _canMove = true;
-    }
-
+    /* ---------------------
+     * Méthodes privées:
+     * ---------------------
+     */
     private void FixedUpdate()
     {
         if (_canMove) 
             Movement(_rotation);
         else if (_isGuard)
-            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            gameObject.GetComponent<Rigidbody>().velocity = Vector3.zero; // Si l'obstacle qui ne peut pas bouger est un garde, on met la vélocité à 0.
     }
 
     private void Movement(bool rotation)
@@ -44,10 +45,12 @@ public class ObstacleMovement : MonoBehaviour
             Translate();
     }
 
+    // Bouge l'obstacle selon l'axe choisi.
     private void Translate()
     {
         Vector3 direction;
 
+        // Choisi la direction voulue.
         if (!_isHorizontal)
             direction = new Vector3(0.0f, 0.0f, _horizontalValue);
         else 
@@ -55,20 +58,25 @@ public class ObstacleMovement : MonoBehaviour
 
         gameObject.GetComponent<Rigidbody>().velocity = direction.normalized * Time.fixedDeltaTime * _translateSpeed;
 
-        // Only rotate the object, if it's a guard.
+        // Tourne l'obstale, seulement si c'est un garde.
         if (_isGuard)
         {
+            // Code pris selon la vidéo de Ketra Games sur YouTube: https://www.youtube.com/watch?v=BJzYGsMcy8Q.
             Quaternion toRotation = Quaternion.LookRotation(direction.normalized, Vector3.up);
             transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, _rotationSpeed * Time.fixedDeltaTime);
         }
     }
 
-    // Méthodes publiques:
+    /* ---------------------
+     * Méthodes publiques:
+     * ---------------------
+     */
     public void SetCanMove(bool canMove) 
     {
         _canMove = canMove;
     }
 
+    // Inverse le mouvement de va-et-viens.
     public void ChangeDirection() 
     {
         _horizontalValue *= -1.0f;

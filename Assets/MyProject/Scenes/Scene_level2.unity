@@ -455,7 +455,8 @@ GameObject:
   - component: {fileID: 19579295}
   - component: {fileID: 19579294}
   - component: {fileID: 19579293}
-  - component: {fileID: 19579299}
+  - component: {fileID: 19579301}
+  - component: {fileID: 19579300}
   - component: {fileID: 19579298}
   m_Layer: 0
   m_Name: SnowBall
@@ -572,7 +573,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teleportObject: {fileID: 1509991958}
   _teleportLocation: {fileID: 1074209513}
---- !u!114 &19579299
+--- !u!114 &19579300
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -581,12 +582,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 19579292}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f6e4ae3b713c814fbc6c6d9bce101e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &19579301
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 19579292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f22bb91162af47beddddbf72cf1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
-  _movable: 0
-  _isGuard: 0
 --- !u!1001 &25419855
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24781,8 +24792,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 16.562517, y: 9.28, z: 10.433853}
-  m_Center: {x: 0.32217693, y: -0.5, z: -0.36164093}
+  m_Size: {x: 11.356892, y: 9.28, z: 10.433853}
+  m_Center: {x: -0.019731522, y: -0.5, z: -0.36164093}
 --- !u!1001 &2127424261
 PrefabInstance:
   m_ObjectHideFlags: 0

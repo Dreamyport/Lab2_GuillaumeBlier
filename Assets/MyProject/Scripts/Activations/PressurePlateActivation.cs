@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class PressurePlateActivation : MonoBehaviour
 {
-    // Attributs: 
+    /* ---------------------
+     * Attributs:
+     * ---------------------
+     */
     private List<GameObject> _colliderList = new List<GameObject>();
 
     [Header("References")]
@@ -15,8 +18,13 @@ public class PressurePlateActivation : MonoBehaviour
     [SerializeField] private Material _lightOffMat;
     [SerializeField] private Material _lightMat;
 
+    /* ---------------------
+     * Méthodes privées:
+     * ---------------------
+     */
     private void OnTriggerEnter(Collider other) 
     {
+        // On ajoute la copie ou le joueur dans la liste d'objets qui sont en contact avec la plaque de pression.
         if (!_colliderList.Contains(other.gameObject) && (other.gameObject.tag == "Player" || other.gameObject.tag == "Copy"))
         {
             _colliderList.Add(other.gameObject);
@@ -28,6 +36,7 @@ public class PressurePlateActivation : MonoBehaviour
 
     private void OnTriggerExit(Collider other) 
     {
+        // Lorsqu'un des objets quitte la zone, si un autre objet est présent dans liste, la plaque de pression reste activée.
         if (_colliderList.Contains(other.gameObject) && (other.gameObject.tag == "Player" || other.gameObject.tag == "Copy"))
         {
             _colliderList.Remove(other.gameObject);

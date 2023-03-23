@@ -1,15 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.GlobalIllumination;
 
-public class ObstacleCollision : MonoBehaviour
+public class TrapCollision : MonoBehaviour
 {
     /* ---------------------
      * Attributs:
      * ---------------------
      */
-    private ObstacleMovement _obstacleMovement;
     private CatchingPlayer _catchingPlayer;
 
     /* ---------------------
@@ -18,17 +16,16 @@ public class ObstacleCollision : MonoBehaviour
      */
     private void Start()
     {
-        _obstacleMovement = GetComponent<ObstacleMovement>();
         _catchingPlayer = GetComponent<CatchingPlayer>();
     }
 
-    // Gestion de la collision pour des obstacles de base.
+    // Gestion de la collision, si l'obstacle téléporte un objet.
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Player" && !_catchingPlayer.GetPlayerCaught())
+        if (collision.gameObject.tag == "Player")
         {
             _catchingPlayer.CaughtPlayer();
-            _obstacleMovement.SetCanMove(false);
+            GetComponent<ObjectTeleport>().Teleport();
         }
     }
 }

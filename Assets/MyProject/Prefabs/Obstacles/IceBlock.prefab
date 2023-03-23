@@ -13,8 +13,9 @@ GameObject:
   - component: {fileID: 5900649189609979873}
   - component: {fileID: 5900649189609979872}
   - component: {fileID: 5900649189609979802}
-  - component: {fileID: 5900649189609979877}
+  - component: {fileID: 652290973828914595}
   - component: {fileID: 5900649189609979876}
+  - component: {fileID: 5900649189609979877}
   m_Layer: 0
   m_Name: IceBlock
   m_TagString: Obstacle
@@ -116,6 +117,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &652290973828914595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900649189609979875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f22bb91162af47beddddbf72cf1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+--- !u!114 &5900649189609979876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5900649189609979875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5900649189609979877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,19 +158,4 @@ MonoBehaviour:
   _translateSpeed: 500
   _rotation: 0
   _isHorizontal: 1
-  _isGuard: 0
---- !u!114 &5900649189609979876
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5900649189609979875}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
-  _movable: 1
   _isGuard: 0

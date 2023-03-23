@@ -9,9 +9,7 @@ TagManager:
   - GuardBody
   - RotationObstacle
   - Key
-  - Trap
   - Obstacle
-  - Portal
   layers:
   - Default
   - TransparentFX

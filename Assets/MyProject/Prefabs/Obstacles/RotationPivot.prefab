@@ -10,8 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 7438126220209992559}
   - component: {fileID: 1535349428814630973}
-  - component: {fileID: 7365644452144312375}
+  - component: {fileID: 5090085110720008128}
   - component: {fileID: 5820575056620695483}
+  - component: {fileID: 7365644452144312375}
   m_Layer: 0
   m_Name: RotationPivot
   m_TagString: Untagged
@@ -48,6 +49,31 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0323107, y: 0.36157417, z: 0.52210295}
   m_Center: {x: -0.0017954111, y: -1.9086488, z: -0.23894887}
+--- !u!114 &5090085110720008128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438126220209992558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f22bb91162af47beddddbf72cf1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+--- !u!114 &5820575056620695483
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7438126220209992558}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7365644452144312375
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -64,21 +90,6 @@ MonoBehaviour:
   _translateSpeed: 2
   _rotation: 1
   _isHorizontal: 0
-  _isGuard: 0
---- !u!114 &5820575056620695483
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7438126220209992558}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
-  _movable: 1
   _isGuard: 0
 --- !u!1001 &7438126218660429679
 PrefabInstance:

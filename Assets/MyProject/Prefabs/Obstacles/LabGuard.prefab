@@ -105,8 +105,9 @@ GameObject:
   - component: {fileID: 297173679829535296}
   - component: {fileID: 297173679829535297}
   - component: {fileID: 8379213508790940179}
+  - component: {fileID: 3486472200746145604}
+  - component: {fileID: 1288873699879587633}
   - component: {fileID: 7427669213897294066}
-  - component: {fileID: 2707837755693992302}
   - component: {fileID: 1353974257859187680}
   m_Layer: 0
   m_Name: LabGuard
@@ -160,8 +161,33 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &3486472200746145604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297173679829535299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f22bb91162af47beddddbf72cf1ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
+--- !u!114 &1288873699879587633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297173679829535299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1be306696bf8c347b6910c7e20a9493, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &7427669213897294066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,21 +204,6 @@ MonoBehaviour:
   _translateSpeed: 300
   _rotation: 0
   _isHorizontal: 0
-  _isGuard: 1
---- !u!114 &2707837755693992302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 297173679829535299}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
-  _movable: 1
   _isGuard: 1
 --- !u!114 &1353974257859187680
 MonoBehaviour:

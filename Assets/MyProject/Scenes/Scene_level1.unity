@@ -5029,7 +5029,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 197374556}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -23.200844, y: 20.929468, z: 26.340496}
+  m_LocalPosition: {x: -49.000843, y: 20.929468, z: -51.159523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -26738,7 +26738,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -23.200844, y: 20.929468, z: 26.340496}
+  m_LocalPosition: {x: -49.000843, y: 20.929468, z: -51.159523}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50320,7 +50320,8 @@ GameObject:
   - component: {fileID: 1853863318}
   - component: {fileID: 1853863317}
   - component: {fileID: 1853863316}
-  - component: {fileID: 1853863321}
+  - component: {fileID: 1853863323}
+  - component: {fileID: 1853863322}
   - component: {fileID: 1853863320}
   m_Layer: 0
   m_Name: Trap
@@ -50437,7 +50438,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _teleportObject: {fileID: 1095513110}
   _teleportLocation: {fileID: 202914115}
---- !u!114 &1853863321
+--- !u!114 &1853863322
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -50446,12 +50447,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 1853863314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afd496859d0012149958f19f52df048e, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f6e4ae3b713c814fbc6c6d9bce101e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1853863323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1853863314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e2f22bb91162af47beddddbf72cf1ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _playerCaughtMat: {fileID: 2100000, guid: 29dc84345b1dc0248b4020c8b6243249, type: 2}
-  _movable: 0
-  _isGuard: 0
 --- !u!4 &1854375807 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4661435515762813124, guid: e289bf5debb17f6459818c207d781953, type: 3}
@@ -58749,7 +58760,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329264399193378963, guid: bf293c25471c58a40a2cce35e3bf012b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -12.5
+      value: -38.3
       objectReference: {fileID: 0}
     - target: {fileID: 4329264399193378963, guid: bf293c25471c58a40a2cce35e3bf012b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -58757,7 +58768,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4329264399193378963, guid: bf293c25471c58a40a2cce35e3bf012b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 20.6
+      value: -56.9
       objectReference: {fileID: 0}
     - target: {fileID: 4329264399193378963, guid: bf293c25471c58a40a2cce35e3bf012b, type: 3}
       propertyPath: m_LocalRotation.w
